@@ -1,10 +1,23 @@
 """
-This is pretty cool, this code was basically written by chatGPT - I explained what I needed, it gave me some really
-complicated program manually iterating through - I said, "is there a more pythonic way to do this with geopandas, I
-specified a few features, and it spit out the required code.  Ultimately, I wanted code that would parse a .kml file
-spit out all the points of any polygons, and copy it to the clipboard.
+I didn't know how to parse .kml files to get exactly what I wanted, so I had chatgpt explain the structure to me, it
+only hallucinated a little bit, and after some coaxing I was able to get it to extract polygon coordinates from the .kml
+files - apparently they're just some horrendous XML tree.  This code finds all of the points in an enclosed polygon,
+if it breaks because you tried to do some crazy topology - sorry, but for simple polygons you draw in google earth then
+save it works pretty well for me.
 
-I then went in and changed the features I wanted to adjust, and wrote a script to launch it all at once
+After chatgpt generated some code, I used it to build a quick CLI to run it wrote a little code to get it to spit out
+some javascript then finally copy it to the clipboard.
+
+install works like this:
+clone the repository
+make a virtual environment called venv
+install the requirements
+then run the following bash command:
+
+source geoconf.bash --input_file /path/to/kml_file.kml
+
+it will output the text as a javascript variable and copy it to the clipboard for you.  I hope it helps.
+-pat
 """
 
 import argparse
